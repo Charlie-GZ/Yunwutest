@@ -2147,6 +2147,27 @@ h1 {
   color: var(--color-text);
 }
 
+/* T2：环节切换时的闪烁高亮视觉提示（约 1.6s，与 JS 定时器一致） */
+.section-switch-flash {
+  animation: sectionSwitchFlash 0.4s ease-in-out 4;
+}
+
+@keyframes sectionSwitchFlash {
+  0%,
+  100% {
+    background-color: color-mix(
+      in srgb,
+      var(--color-lavender) 20%,
+      transparent
+    );
+    box-shadow: 0 0 0 0 rgba(255, 193, 7, 0);
+  }
+  50% {
+    background-color: rgba(255, 193, 7, 0.35);
+    box-shadow: 0 0 0 8px rgba(255, 193, 7, 0.35);
+  }
+}
+
 .real-time-display {
   text-align: center;
   font-size: 1.5em;

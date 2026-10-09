@@ -1587,3 +1587,11 @@ function applyCustomExam() {
   // 跳转到主页面
   window.location.href = "index.html";
 }
+
+// 测试导出守卫：仅在 Node 环境（module 存在）时导出纯函数，
+// 浏览器内 module 未定义，此分支不会执行，不影响任何既有行为
+if (typeof module !== "undefined" && module.exports) {
+  module.exports = {
+    validateAndFormatTime,
+  };
+}

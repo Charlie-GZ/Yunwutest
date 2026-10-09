@@ -1,0 +1,92 @@
+
+> exam-clock@1.0.0 test
+> node --test
+
+TAP version 13
+# Subtest: T1 回归：fixture 下每个环节的 start / end / realTime
+ok 1 - T1 回归：fixture 下每个环节的 start / end / realTime
+  ---
+  duration_ms: 1.4798
+  type: 'test'
+  ...
+# Subtest: T1 回归："考试结束"位置 = 120 = totalMinutes
+ok 2 - T1 回归："考试结束"位置 = 120 = totalMinutes
+  ---
+  duration_ms: 0.5514
+  type: 'test'
+  ...
+# Subtest: 防御用例：全部环节 countInTotal=false 时不抛错且总时长为 0
+ok 3 - 防御用例：全部环节 countInTotal=false 时不抛错且总时长为 0
+  ---
+  duration_ms: 0.6655
+  type: 'test'
+  ...
+# Subtest: 去重：输入 sections 已含"考试结束"时，输出仍只保留唯一结束环节
+ok 4 - 去重：输入 sections 已含"考试结束"时，输出仍只保留唯一结束环节
+  ---
+  duration_ms: 0.3561
+  type: 'test'
+  ...
+# Subtest: calculateEndTime：("09:00", 120) → 11:00
+ok 5 - calculateEndTime：("09:00", 120) → 11:00
+  ---
+  duration_ms: 1.7717
+  type: 'test'
+  ...
+# Subtest: calculateEndTime：("23:30", 120) → 01:30 (次日)，处理跨午夜
+ok 6 - calculateEndTime：("23:30", 120) → 01:30 (次日)，处理跨午夜
+  ---
+  duration_ms: 0.2948
+  type: 'test'
+  ...
+# Subtest: calculateEndTime：("00:00", 0) → 00:00
+ok 7 - calculateEndTime：("00:00", 0) → 00:00
+  ---
+  duration_ms: 0.2726
+  type: 'test'
+  ...
+# Subtest: formatTime：0 秒 → 00:00:00
+ok 8 - formatTime：0 秒 → 00:00:00
+  ---
+  duration_ms: 0.9618
+  type: 'test'
+  ...
+# Subtest: formatTime：7325 秒 → 02:02:05
+ok 9 - formatTime：7325 秒 → 02:02:05
+  ---
+  duration_ms: 0.1519
+  type: 'test'
+  ...
+# Subtest: formatTime：负数按实现钳制为 0 → 00:00:00
+ok 10 - formatTime：负数按实现钳制为 0 → 00:00:00
+  ---
+  duration_ms: 0.1222
+  type: 'test'
+  ...
+# Subtest: validateAndFormatTime：合法时间字符串被规范化为 HH:MM
+ok 11 - validateAndFormatTime：合法时间字符串被规范化为 HH:MM
+  ---
+  duration_ms: 1.0557
+  type: 'test'
+  ...
+# Subtest: validateAndFormatTime：非法/越界时间返回 null
+ok 12 - validateAndFormatTime：非法/越界时间返回 null
+  ---
+  duration_ms: 0.1809
+  type: 'test'
+  ...
+# Subtest: validateAndFormatTime：空值与 null 返回 null
+ok 13 - validateAndFormatTime：空值与 null 返回 null
+  ---
+  duration_ms: 0.1195
+  type: 'test'
+  ...
+1..13
+# tests 13
+# suites 0
+# pass 13
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 295.6607
